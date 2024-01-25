@@ -15,9 +15,9 @@ public class ChannelSelectorCmp extends NodeComponent {
         List<QueryVO> queryList = context.getQueryResultList();
 
         //选择渠道余量最大的
-        QueryVO vo = queryList.stream().min((o1, o2) -> o2.getAvailCount() - o1.getAvailCount()).orElse(null);
+        QueryVO vo = queryList.stream().min((o1, o2) -> o2.availCount() - o1.availCount()).orElse(null);
 
         assert vo != null;
-        context.setFinalResultChannel(vo.getChannel());
+        context.setFinalResultChannel(vo.channel());
     }
 }
